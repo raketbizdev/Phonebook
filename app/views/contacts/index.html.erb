@@ -1,35 +1,15 @@
-<%= bootstrap_flash %>
+<h1>Contacts List</h1>
 
-<h1 class="mb-3 h3">Contacts</h1>
-
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th>Full Name</th>
-      <th>Office phone</th>
-      <th>Home phone</th>
-      <th>Office address</th>
-      <th>Home address</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @contacts.each do |contact| %>
-      <tr>
-        <td><%= contact.full_name %></td>
-        <td><%= contact.office_phone %></td>
-        <td><%= contact.home_phone %></td>
-        <td><%= contact.office_address %></td>
-        <td><%= contact.home_address %></td>
-        <td><%= link_to 'View', contact %></td>
-        <td><%= link_to 'Edit', edit_contact_path(contact) %></td>
-        <td><%= link_to 'Delete', contact, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'Add Contact', new_contact_path, class: "btn btn-primary", role: "button" %>
+<div class="list-group">
+  <% @contacts.each do |contact| %>
+  <div class="list-group-item list-group-item-action flex-column align-items-start">
+    <div class="d-flex w-100 justify-content-between">
+      <h5 class="mb-1"><%= contact.full_name %> </h5>
+      <small><%= link_to 'View', contact, class: "btn btn-outline-info btn-sm", role: "link" %> <%= link_to 'Edit', edit_contact_path(contact), class: "btn btn-outline-warning btn-sm", role: "link" %> <%= link_to 'Delete', contact, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-outline-danger btn-sm", role: "link" %></small>
+    </div>
+  </div>
+  <% end %>
+</div>
+<div class="mt-5">
+  <%= link_to 'New Contact', new_contact_path, class: "btn btn-primary" %>
+</div>

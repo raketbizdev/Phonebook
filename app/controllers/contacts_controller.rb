@@ -28,7 +28,7 @@ class ContactsController < ApplicationController
 
     respond_to do |format|
       if @contact.save
-        format.html { redirect_to root_path, notice: 'Contact was successfully created.' }
+        format.html { redirect_to @contact, notice: 'Contact was successfully created.' }
         format.json { render :show, status: :created, location: @contact }
       else
         format.html { render :new }
@@ -69,6 +69,29 @@ class ContactsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def contact_params
-      params.require(:contact).permit(:first_name, :last_name, :office_phone, :home_phone, :office_address, :home_address)
+      params.require(:contact).permit(
+        :first_name, 
+        :last_name, 
+        :company,
+        :avatar,
+        phones_attributes: [
+          :id, 
+          :label,
+          :phone_number,
+          :_destroy
+        ],
+        emails_attributes: [
+          :id, 
+          :label,
+          :my_email,
+          :_destroy
+        ],
+        addresses_attributes: [
+          :id, 
+          :label,
+          :my_address,
+          :_destroy
+        ]
+        )
     end
 end

@@ -1,18 +1,13 @@
-<section class="container-fluid">
-	<div class="row">
-		<div class="col-md-6 offset-md-3">
-			<div class="card">
-
-				<div class="card-header">
-					<h1 class="card-title h3">Editing Contact</h1>
-				</div>
-				<div class="card-body">
-					<%= render 'form', contact: @contact %>
-					
-				</div>
-
+<div class="row">
+	<div class="col-md-6 offset-md-3">
+		<div class="card">
+			<div class="card-header">
+				<h1 class="card-title h3">Editing Contact</h1>
 			</div>
-
+			<div class="card-body">
+				<%= render 'form', contact: @contact %>
+				<%= link_to 'Back', contacts_path %>
+			</div>
 		</div>
 	</div>
-</section>
+</div>

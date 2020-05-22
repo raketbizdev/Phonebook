@@ -15,11 +15,7 @@ class ContactsTest < ApplicationSystemTestCase
     click_on "New Contact"
 
     fill_in "First name", with: @contact.first_name
-    fill_in "Home address", with: @contact.home_address
-    fill_in "Home phone", with: @contact.home_phone
     fill_in "Last name", with: @contact.last_name
-    fill_in "Office address", with: @contact.office_address
-    fill_in "Office phone", with: @contact.office_phone
     click_on "Create Contact"
 
     assert_text "Contact was successfully created"
@@ -31,11 +27,7 @@ class ContactsTest < ApplicationSystemTestCase
     click_on "Edit", match: :first
 
     fill_in "First name", with: @contact.first_name
-    fill_in "Home address", with: @contact.home_address
-    fill_in "Home phone", with: @contact.home_phone
     fill_in "Last name", with: @contact.last_name
-    fill_in "Office address", with: @contact.office_address
-    fill_in "Office phone", with: @contact.office_phone
     click_on "Update Contact"
 
     assert_text "Contact was successfully updated"
