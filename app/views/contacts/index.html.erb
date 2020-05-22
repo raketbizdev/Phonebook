@@ -5,8 +5,7 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th>First name</th>
-      <th>Last name</th>
+      <th>Full Name</th>
       <th>Office phone</th>
       <th>Home phone</th>
       <th>Office address</th>
@@ -18,13 +17,12 @@
   <tbody>
     <% @contacts.each do |contact| %>
       <tr>
-        <td><%= contact.first_name %></td>
-        <td><%= contact.last_name %></td>
+        <td><%= contact.full_name %></td>
         <td><%= contact.office_phone %></td>
         <td><%= contact.home_phone %></td>
         <td><%= contact.office_address %></td>
         <td><%= contact.home_address %></td>
-        <td><%= link_to 'Show', contact %></td>
+        <td><%= link_to 'View', contact %></td>
         <td><%= link_to 'Edit', edit_contact_path(contact) %></td>
         <td><%= link_to 'Delete', contact, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
