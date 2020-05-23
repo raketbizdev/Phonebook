@@ -8,7 +8,7 @@ class Contact < ApplicationRecord
 
 	def my_avatar
 		if self.avatar.attached?
-			self.avatar.variant(resize_to_fit: [150, 150])
+			self.avatar.variant(resize_to_fill: [150, 150], quality: 100, gravity: "center")
 		else
 			"https://via.placeholder.com/150"
 		end
